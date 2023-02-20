@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+from models import storage
 import uuid
 from datetime import datetime
 """ placeholder for module documentation """
@@ -24,6 +25,7 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         dict_copy = self.__dict__.copy()
@@ -31,4 +33,3 @@ class BaseModel:
         dict_copy['created_at'] = self.created_at.isoformat()
         dict_copy['updated_at'] = self.updated_at.isoformat()
         return dict_copy
-
