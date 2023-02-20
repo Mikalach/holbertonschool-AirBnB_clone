@@ -27,5 +27,4 @@ class FileStorage:
                     obj = eval(cls_name)(**value)
                     self.new(obj)
         except FileNotFoundError:
-            print(caca)
             pass
