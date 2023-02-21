@@ -19,6 +19,25 @@ class FileStorage:
             json.dump(d, f)
 
     def reload(self):
+    if not isfile(self.__file_path):
+        return
+    with open(self.__file_path, mode='r', encoding='utf-8') as f:
+        d = json.load(f)
+        for k, v in d.items():
+            cls_name = v['__class__']
+            if cls_name == 'BaseModel':
+                cls = BaseModel
+            elif cls_name == 'User':
+                from models.user import User
+                cls = User
+            else:
+                # Handle any other classes you may have here
+                raise ValueError(f"Unknown class type: {cls_name}")
+
+            obj = cls(**v)
+            self.new(obj)
+
+    """def reload(self):
         if not isfile(self.__file_path):
             return
         with open(FileStorage.__file_path, mode='r', encoding='utf-8') as f:
@@ -26,3 +45,4 @@ class FileStorage:
             for value in d.values():
                 self.new(eval(value["__class__"])(**value))
         return
+    """
