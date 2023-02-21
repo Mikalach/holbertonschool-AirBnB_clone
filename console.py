@@ -8,6 +8,7 @@ from models.engine import file_storage
 class HBNBCommand(cmd.Cmd):
     """ Each command handled by a specific method """
 
+    open("file.json", "a", encoding="utf-8").close()
     # {prompt = string} <-- custom prompt name
     prompt = '(hbnb) '
 
@@ -30,14 +31,9 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, className=None):
         """ Create a new instance of a class, save instance info to json.file and print id """
         mdClassName = "models." + str(className)
-        try:
-            with open("file.json", "r", encoding="utf-8") as f:
-                jsonString = f.read()
-        except:
-            jsonString = ""
         if className is None or className == "":
             print("** class name missing **")
-        elif not className in jsonString:
+        elif not mdClassName:
             print("** class doesn't exist **")
         else:
             new_model = eval(className + str("()"))
