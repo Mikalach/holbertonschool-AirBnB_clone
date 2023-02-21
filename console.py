@@ -69,13 +69,13 @@ class HBNBCommand(cmd.Cmd):
         if listOfArg[0] == "":
             print("** class name missing **")
 
-        # test if class name is wrong
-        elif not str(listOfArg[0]) in jsonDict:
-            print("** class doesn't exist **")
-
         # test if id is missing
         elif listOfArg[1] == "":
             print("** instance id missing **")
+
+        # test if class name is wrong
+        elif not str(listOfArg[0]) in jsonDict:
+            print("** class doesn't exist **")
 
         # test if instance of the class name (ex: models.Basemodel.1234-1234)
         elif not instanc in jsonDict:
