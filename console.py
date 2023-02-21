@@ -30,9 +30,11 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, className=None):
         """ Create a new instance of a class, save instance info to json.file and print id """
         mdClassName = "models." + str(className)
-        if className is None :
+        with open("file.json", "r", encoding="utf-8") as f:
+            jsonString = f.read()
+        if className is None or className == "":
             print("** class name missing **")
-        elif not mdClassName:
+        elif not className in jsonString:
             print("** class doesn't exist **")
         else:
             new_model = eval(className + str("()"))
@@ -68,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
         # test if class name is wrong
-        elif not mdArg0:
+        elif not str(listOfArg[0]) in jsonDict:
             print("** class doesn't exist **")
 
         # test if id is missing
