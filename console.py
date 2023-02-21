@@ -57,14 +57,15 @@ class HBNBCommand(cmd.Cmd):
         # separete command arguments in a list (listOfArg[0] == className & listOfArg[1] == id)
         listOfArg = arguments.split(" ")
         mdArg0 = "models." + str(listOfArg[0])
-        f = open("file.json", "r", encoding="utf-8")
-        jsonDict = json.loads(f.read())
-        f.close()
+        try:
+            with open("file.json", "r", encoding="utf-8") as f:
+                jsonDict = json.loads(f.read())
+        except:
+            jsonDict = ""
         try:
             mdArg1 = "models." + str(listOfArg[1])
             instanc = str(listOfArg[0]) + "." + str(listOfArg[1])
         except:
-            print(listOfArg)
             mdArg1 = "None"
             instanc = "None"
             listOfArg.append("")
