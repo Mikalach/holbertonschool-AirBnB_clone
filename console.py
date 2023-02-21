@@ -30,8 +30,11 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, className=None):
         """ Create a new instance of a class, save instance info to json.file and print id """
         mdClassName = "models." + str(className)
-        with open("file.json", "r", encoding="utf-8") as f:
-            jsonString = f.read()
+        try:
+            with open("file.json", "r", encoding="utf-8") as f:
+                jsonString = f.read()
+        except:
+            jsonString = ""
         if className is None or className == "":
             print("** class name missing **")
         elif not className in jsonString:
