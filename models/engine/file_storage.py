@@ -22,7 +22,7 @@ class FileStorage:
         try:
             with open(FileStorage.__file_path, mode='r', encoding='utf-8') as f:
                 d = json.load(f)
-            for key in d:
-                FileStorage.__objects[key] = FileStorage.__objects[d[key]["__class__"]](**d[key])
+            #for key in d:
+             #   FileStorage.__objects[key] = FileStorage.__objects[d[key]["__class__"]](**d[key])
         except FileNotFoundError:
             pass
