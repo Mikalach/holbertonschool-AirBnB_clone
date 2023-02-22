@@ -118,12 +118,15 @@ class HBNBCommand(cmd.Cmd):
             """ print every stored instance """
             for instance in jsonDict:
                 allObj.append(str(jsonDict[instance]))
+                print(allObj)
         else:
             """ print every stored instance of a specific class"""
             for instance in jsonDict:
                 if className in instance:
                     allObj.append(str(jsonDict[instance]))
-        print(allObj)
+                    print(allObj)
+                else:
+                    print("** class doesn't exist **")
 
     # check if line (user input) is 'update'
     def do_update(self, arguments):
