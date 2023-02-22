@@ -40,12 +40,6 @@ class HBNBCommand(cmd.Cmd):
                 print(new_model.id)
             except:
                 print("** class doesn't exist **")
-        # Mikalach add for task 8
-        """ if arg == "User":
-            obj = User()
-            models.storage.new(obj)
-            models.storage.save()
-            print(obj.id)"""
 
     # check if line (user input) is 'show'
     def do_show(self, arguments):
@@ -78,9 +72,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(jsonDict[instanc])
         #Mikalach added for task 8
-        """ if obj_type == "User":
-            obj = models.storage.get(User, obj_id)
-            print(obj)"""
 
     # check if line (user input) is 'destroy'
     def do_destroy(self, arguments):
@@ -114,12 +105,6 @@ class HBNBCommand(cmd.Cmd):
             del jsonDict[str(instanc)]
             storage.save()
 
-        #Mikalach added for task 8
-        """ if obj_type == "User":
-            obj = models.storage.get(User, obj_id)
-            models.storage.delete(obj)
-            models.storage.save()"""
-
     # check if line (user input) is 'all'
     def do_all(self, className):
         """ Prints all string representation of all instances """
@@ -135,20 +120,11 @@ class HBNBCommand(cmd.Cmd):
                 if className in instance:
                     allObj.append(str(jsonDict[instance]))
         print(allObj)
-        # Mikalach added for task 8
-        """if arg == "User":
-            objects = models.storage.all(User)
-            print([str(obj) for obj in objects.values()])"""
 
     # check if line (user input) is 'update'
     def do_update(self, line):
         """ Quit command to exit the program """
-        #Mikalach added for task 8
-        """ if obj_type == "User":
-            obj = models.storage.get(User, obj_id)
-            setattr(obj, attr_name, attr_value)"""
-
-
+        pass
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
