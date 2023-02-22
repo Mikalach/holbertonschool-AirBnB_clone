@@ -1,13 +1,15 @@
 #!/usr/bin/python3
+"""
+    Entry point of the command interpreter
+"""
+
+
 import cmd
 import json
 from models import storage
 from models.engine import file_storage
 from models.base_model import BaseModel
 from models.user import User
-"""
-    Entry point of the command interpreter
-"""
 
 
 class HBNBCommand(cmd.Cmd):
