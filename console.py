@@ -18,6 +18,7 @@ class HBNBCommand(cmd.Cmd):
     """ Each command handled by a specific method """
 
     prompt = '(hbnb) '
+    __classes = ["BaseModel", "User", "State", "City", "Place", "Amenity", "Review"]
     # ---------- Quit commands
 
     # check if line (user input) is EOF (ctrl + d) or 'quit'
@@ -69,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
         elif listOfArg[1] == "":
             print("** instance id missing **")
         # test if class name is wrong
-        elif not str(listOfArg[0]) in str(jsonDict):
+        elif not str(listOfArg[0]) in HBNBCommand.__classes:
             print("** class doesn't exist **")
         # test if instance of the class name (ex: models.Basemodel.1234-1234)
         elif not instanc in jsonDict:
@@ -100,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
         elif listOfArg[1] == "":
             print("** instance id missing **")
         # test if class name is wrong
-        elif not str(listOfArg[0]) in str(jsonDict):
+        elif not str(listOfArg[0]) in HBNBCommand.__classes:
             print("** class doesn't exist **")
         # test if instance of the class name (ex: models.Basemodel.1234-1234)
         elif not instanc in jsonDict:
