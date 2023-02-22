@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """
-    Summary of MyModule.
     Extended discussion of my module.
 """
 
