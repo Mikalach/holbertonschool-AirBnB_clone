@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-"""Summary of MyModule.
-
-Extended discussion of my module.
 """
+    Summary of MyModule.
+    Extended discussion of my module.
+"""
+
+
 import cmd
 import json
 from models import storage
