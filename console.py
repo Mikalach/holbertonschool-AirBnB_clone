@@ -7,6 +7,11 @@ from models.engine import file_storage
 # need to import each and every new class created following the BaseModel import style:
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -40,12 +45,6 @@ class HBNBCommand(cmd.Cmd):
                 print(new_model.id)
             except:
                 print("** class doesn't exist **")
-        # Mikalach add for task 8
-        """ if arg == "User":
-            obj = User()
-            models.storage.new(obj)
-            models.storage.save()
-            print(obj.id)"""
 
     # check if line (user input) is 'show'
     def do_show(self, arguments):
@@ -77,10 +76,6 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             print(jsonDict[instanc])
-        #Mikalach added for task 8
-        """ if obj_type == "User":
-            obj = models.storage.get(User, obj_id)
-            print(obj)"""
 
     # check if line (user input) is 'destroy'
     def do_destroy(self, arguments):
@@ -114,12 +109,6 @@ class HBNBCommand(cmd.Cmd):
             del jsonDict[str(instanc)]
             storage.save()
 
-        #Mikalach added for task 8
-        """ if obj_type == "User":
-            obj = models.storage.get(User, obj_id)
-            models.storage.delete(obj)
-            models.storage.save()"""
-
     # check if line (user input) is 'all'
     def do_all(self, className):
         """ Prints all string representation of all instances """
@@ -135,19 +124,42 @@ class HBNBCommand(cmd.Cmd):
                 if className in instance:
                     allObj.append(str(jsonDict[instance]))
         print(allObj)
-        # Mikalach added for task 8
-        """if arg == "User":
-            objects = models.storage.all(User)
-            print([str(obj) for obj in objects.values()])"""
 
     # check if line (user input) is 'update'
-    def do_update(self, line):
-        """ Quit command to exit the program """
-        #Mikalach added for task 8
-        """ if obj_type == "User":
-            obj = models.storage.get(User, obj_id)
-            setattr(obj, attr_name, attr_value)"""
+    def do_update(self, arguments):
+        """ Update an instance """
+        listOfArg = arguments.split(" ")
+        jsonDict = storage.all()
+        try:
+            instanc = str(listOfArg[0]) + "." + str(listOfArg[1])
+        except:
+            instanc = "None"
+            listOfArg.append("")
 
+        """ error handle """
+        # test if class name exist
+        if listOfArg[0] == "":
+            print("** class name missing **")
+        # test if id is missing
+        elif listOfArg[1] == "":
+            print("** instance id missing **")
+        # test if class name is wrong
+        elif not str(listOfArg[0]) in str(jsonDict):
+            print("** class doesn't exist **")
+        # test if instance of the class name (ex: models.Basemodel.1234-1234)
+        elif not instanc in jsonDict:
+            print("** no instance found **")
+        # test if attribute name is missing
+        elif len(listOfArg) == 2:
+            print("** attribute name missing **")
+        # test if attribute value is missing
+        elif len(listOfArg) == 3:
+            print("** value missing **")
+
+            """ update function """
+        elif len(listOfArg) == 4:
+            jsonDict[instanc].__dict__[listOfArg[2]] = listOfArg[3]
+            storage.all()[instanc].save()
 
 
 if __name__ == '__main__':
