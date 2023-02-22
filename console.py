@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 """
-    Extended discussion of my module.
+    Test test test test test test test test EExtended discussion of my module.
+    Test test test test test test test test EExtended discussion of my module.
+    Test test test test test test test test EExtended discussion of my module.
+    Test test test test test test test test EExtended discussion of my module.
+    Test test test test test test test test EExtended discussion of my module.
+    Test test test test test test test test EExtended discussion of my module.
 """
 
 
