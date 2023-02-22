@@ -1,11 +1,11 @@
 #!/usr/bin/python3
+""" Create prompt using cmd models """
 import cmd
 import json
 from models import storage
 from models.engine import file_storage
 from models.base_model import BaseModel
 from models.user import User
-""" Create prompt using cmd models """
 
 
 class HBNBCommand(cmd.Cmd):
@@ -23,7 +23,8 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_create(self, className=None):
-        """ Create a new instance of a class, save instance info to json.file and print id """
+        """ Create a new instance of a class, save instance info to json.file
+        and print id """
         if className is None or className == "":
             print("** class name missing **")
         else:
