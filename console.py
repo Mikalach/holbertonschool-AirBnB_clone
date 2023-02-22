@@ -37,8 +37,6 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, arguments):
         """ Prints the string representation of an instance """
 
-
-        """ initialisation """
         listOfArg = arguments.split(" ")
         jsonDict = storage.all()
         try:
@@ -47,7 +45,6 @@ class HBNBCommand(cmd.Cmd):
             instanc = "None"
             listOfArg.append("")
 
-        """ All the tests + final print """
         if listOfArg[0] == "":
             print("** class name missing **")
         elif listOfArg[1] == "":
@@ -62,8 +59,6 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, arguments):
         """ Deletes an instance based on the class name and id """
 
-
-        """ initialisation """
         listOfArg = arguments.split(" ")
         jsonDict = storage.all()
         try:
@@ -72,7 +67,6 @@ class HBNBCommand(cmd.Cmd):
             instanc = "None"
             listOfArg.append("")
 
-        """ All the tests + final print """
         if listOfArg[0] == "":
             print("** class name missing **")
         elif listOfArg[1] == "":
@@ -90,11 +84,9 @@ class HBNBCommand(cmd.Cmd):
         jsonDict = storage.all()
         allObj = []
         if className == "":
-            """ print every stored instance """
             for instance in jsonDict:
                 allObj.append(str(jsonDict[instance]))
         else:
-            """ print every stored instance of a specific class"""
             for instance in jsonDict:
                 if className in instance:
                     allObj.append(str(jsonDict[instance]))
