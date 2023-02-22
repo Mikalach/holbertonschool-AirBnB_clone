@@ -1,12 +1,5 @@
 #!/usr/bin/python3
-"""
-    Test test test test test test test test EExtended discussion of my module.
-    Test test test test test test test test EExtended discussion of my module.
-    Test test test test test test test test EExtended discussion of my module.
-    Test test test test test test test test EExtended discussion of my module.
-    Test test test test test test test test EExtended discussion of my module.
-    Test test test test test test test test EExtended discussion of my module.
-"""
+"""  Test test test test test test test test EExtended discussion of my module. """
 
 
 import cmd
