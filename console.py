@@ -2,13 +2,6 @@
 """  Test test test test test test test test EExtended discussion of my module. """
 
 
-import cmd
-import json
-from models import storage
-from models.engine import file_storage
-from models.base_model import BaseModel
-from models.user import User
-
 
 class HBNBCommand(cmd.Cmd):
     """ Each command handled by a specific method """
