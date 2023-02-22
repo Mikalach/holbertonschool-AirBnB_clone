@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ Create prompt using cmd models """
+
+
 import cmd
 import json
 from models import storage
