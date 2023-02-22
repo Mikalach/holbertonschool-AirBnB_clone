@@ -40,11 +40,11 @@ class HBNBCommand(cmd.Cmd):
             except:
                 print("** class doesn't exist **")
         # Mikalach add for task 8
-        """if arg == "User":
+        if arg == "User":
             obj = User()
             models.storage.new(obj)
             models.storage.save()
-            print(obj.id)"""
+            print(obj.id)
 
     # check if line (user input) is 'show'
     def do_show(self, arguments):
@@ -77,9 +77,9 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(jsonDict[instanc])
         #Mikalach added for task 8
-        """if obj_type == "User":
+        if obj_type == "User":
             obj = models.storage.get(User, obj_id)
-            print(obj)"""
+            print(obj)
 
     # check if line (user input) is 'destroy'
     def do_destroy(self, arguments):
@@ -114,10 +114,10 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
         #Mikalach added for task 8
-        """if obj_type == "User":
+        if obj_type == "User":
             obj = models.storage.get(User, obj_id)
             models.storage.delete(obj)
-            models.storage.save()"""
+            models.storage.save()
 
     # check if line (user input) is 'all'
     def do_all(self, className):
@@ -135,17 +135,17 @@ class HBNBCommand(cmd.Cmd):
                     allObj.append(str(jsonDict[instance]))
         print(allObj)
         # Mikalach added for task 8
-        """if arg == "User":
+        if arg == "User":
             objects = models.storage.all(User)
-            print([str(obj) for obj in objects.values()])"""
+            print([str(obj) for obj in objects.values()])
 
     # check if line (user input) is 'update'
     def do_update(self, line):
         """ Quit command to exit the program """
         #Mikalach added for task 8
-        """if obj_type == "User":
+        if obj_type == "User":
             obj = models.storage.get(User, obj_id)
-            setattr(obj, attr_name, attr_value)"""
+            setattr(obj, attr_name, attr_value)
 
 
 
