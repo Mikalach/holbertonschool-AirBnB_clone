@@ -2,7 +2,7 @@
 # Holberton Airbnb Clone Project
 This project is a clone of the Airbnb website, built as part of the curriculum at Holberton School. The goal of the project is to develop a full-stack web application that allows users to search for and book accommodations, as well as list their own accommodations for rent.
 ______
-# Part 1:
+# Part 1: The Back-end
 ## The console
 The project includes a console that allows you to create, update, and delete objects in the application's data models. The console uses a storage engine that provides an abstraction layer between the objects and how they are stored and persisted. This means that you don't need to worry about the underlying storage mechanism when interacting with the objects.
 
