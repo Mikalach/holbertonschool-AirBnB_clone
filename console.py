@@ -32,6 +32,8 @@ class HBNBCommand(cmd.Cmd):
         """ Quit command to exit the program """
         return True
 
+    def emptyline(self):
+        return 0
     # ---------- Other commands
 
     # check if line (user input) is 'create'
