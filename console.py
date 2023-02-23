@@ -38,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
 
     # check if line (user input) is 'create'
     def do_create(self, className=None):
-        """ Create a new instance of a class, save instanc info to json.file """
+        """ Create new instance of a class, save instanc info to json.file """
         if className is None or className == "":
             print("** class name missing **")
         else:
@@ -83,7 +83,6 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, arguments):
         """ Deletes an instance based on the class name and id """
 
-
         """ initialisation """
         # separate command arg in a list (Arg[0] == className & arg[1] == id)
         listOfArg = arguments.split(" ")
@@ -123,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
                 print(allObj)
         else:
             """ print every stored instance of a specific class"""
-            if not className in jsonDict:
+            if className not in jsonDict:
                 print("** class doesn't exist **")
             for instance in jsonDict:
                 if className in instance:
