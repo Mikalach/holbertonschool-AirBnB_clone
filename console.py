@@ -4,7 +4,6 @@ import cmd
 import json
 from models import storage
 from models.engine import file_storage
-# need to import each and every new class created following the BaseModel import style:
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -18,7 +17,8 @@ class HBNBCommand(cmd.Cmd):
     """ Each command handled by a specific method """
 
     prompt = '(hbnb) '
-    __classes = ["BaseModel", "User", "State", "City", "Place", "Amenity", "Review"]
+    __classes = ["BaseModel", "User", "State", "City",
+                 "Place", "Amenity", "Review"]
     # ---------- Quit commands
 
     # check if line (user input) is EOF (ctrl + d) or 'quit'
@@ -38,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
 
     # check if line (user input) is 'create'
     def do_create(self, className=None):
-        """ Create a new instance of a class, save instance info to json.file and print id """
+        """ Create a new instance of a class, save instanc info to json.file """
         if className is None or className == "":
             print("** class name missing **")
         else:
@@ -53,9 +53,8 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, arguments):
         """ Prints the string representation of an instance """
 
-
         """ initialisation """
-        # separete command arguments in a list (listOfArg[0] == className & listOfArg[1] == id)
+        # separete command arg in a list (Arg[0] == className & Arg[1] == id)
         listOfArg = arguments.split(" ")
         jsonDict = storage.all()
         try:
@@ -72,10 +71,10 @@ class HBNBCommand(cmd.Cmd):
         elif listOfArg[1] == "":
             print("** instance id missing **")
         # test if class name is wrong
-        elif not str(listOfArg[0]) in HBNBCommand.__classes:
+        elif str(listOfArg[0]) not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         # test if instance of the class name (ex: models.Basemodel.1234-1234)
-        elif not instanc in jsonDict:
+        elif instanc not in jsonDict:
             print("** no instance found **")
         else:
             print(jsonDict[instanc])
@@ -86,7 +85,7 @@ class HBNBCommand(cmd.Cmd):
 
 
         """ initialisation """
-        # separete command arguments in a list (listOfArg[0] == className & listOfArg[1] == id)
+        # separate command arg in a list (Arg[0] == className & arg[1] == id)
         listOfArg = arguments.split(" ")
         jsonDict = storage.all()
         try:
@@ -103,10 +102,10 @@ class HBNBCommand(cmd.Cmd):
         elif listOfArg[1] == "":
             print("** instance id missing **")
         # test if class name is wrong
-        elif not str(listOfArg[0]) in HBNBCommand.__classes:
+        elif str(listOfArg[0]) not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         # test if instance of the class name (ex: models.Basemodel.1234-1234)
-        elif not instanc in jsonDict:
+        elif instanc not in jsonDict:
             print("** no instance found **")
         else:
             del jsonDict[str(instanc)]
@@ -150,10 +149,10 @@ class HBNBCommand(cmd.Cmd):
         elif listOfArg[1] == "":
             print("** instance id missing **")
         # test if class name is wrong
-        elif not str(listOfArg[0]) in str(jsonDict):
+        elif str(listOfArg[0]) not in str(jsonDict):
             print("** class doesn't exist **")
         # test if instance of the class name (ex: models.Basemodel.1234-1234)
-        elif not instanc in jsonDict:
+        elif instanc not in jsonDict:
             print("** no instance found **")
         # test if attribute name is missing
         elif len(listOfArg) == 2:
